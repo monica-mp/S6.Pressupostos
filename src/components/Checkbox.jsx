@@ -55,7 +55,7 @@ function Checkbox({ services, onCheckboxChange }) {
               checked={services.seo}
               onChange={() => onCheckboxChange("seo")}
             />
-            <span className="label-text pl-2">Add</span>
+            <span className="label-text pl-2">Afegir</span>
           </label>
         </div>
       </div>
@@ -75,7 +75,7 @@ function Checkbox({ services, onCheckboxChange }) {
               checked={services.ads}
               onChange={() => onCheckboxChange("ads")}
             />
-            <span className="label-text pl-2">Add</span>
+            <span className="label-text pl-2">Afegir</span>
           </label>
         </div>
       </div>
@@ -96,7 +96,7 @@ function Checkbox({ services, onCheckboxChange }) {
                 checked={services.web}
                 onChange={() => onCheckboxChange("web")}
               />
-              <span className="label-text pl-2">Add</span>
+              <span className="label-text pl-2">Afegir</span>
             </label>
           </div>
         </div>
