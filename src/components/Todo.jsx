@@ -10,7 +10,7 @@ function Todo({ todos, arrayServices }) {
         <p>{todo.email}</p>
       </div>
       <div>
-        <h2>Serveis contractats:</h2>
+        <h2 className="font-bold">Serveis contractats:</h2>
         {todo.services.map((serviceName) => (
           <p key={serviceName}>
             {arrayServices.find((service) => service.name === serviceName).name}
