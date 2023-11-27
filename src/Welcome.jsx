@@ -16,8 +16,8 @@ function Welcome() {
         </div>
         <div className="collapse-content">
           <ul className="menu bg-base-200 rounded-box">
-            <li className="border-b border-slate-700">
-              <details open>
+            <li className="border-b border-slate-700 py-2">
+              <details closed>
                 <summary>
                   Comença seleccionant els serveis que necessites per al teu
                   projecte. Pots triar entre tres opcions:
@@ -35,14 +35,14 @@ function Welcome() {
                 </ul>
               </details>
             </li>
-            <li className="border-b border-slate-700">
+            <li className="border-b border-slate-700 py-2">
               <a>
                 Si decideixes fer una pàgina web, tindràs l'oportunitat de
                 personalitzar encara més el teu pressupost. Podràs seleccionar
                 el nombre de pàgines i d'idiomes per a la teva web.
               </a>
             </li>
-            <li>
+            <li className="py-2">
               <a>
                 Per facilitar la introducció de dades, hem afegit botons als
                 costats dels camps de pàgines i d'idiomes. Amb aquests botons,

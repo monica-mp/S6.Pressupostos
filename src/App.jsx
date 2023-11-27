@@ -1,25 +1,14 @@
 import "./App.css";
+import CheckboxProvider from "./CheckboxContext";
 import Checkbox from "./components/Checkbox.jsx";
-import { useState } from "react";
+import TodoList from "./components/TodoList.jsx";
 
 function App() {
-  const [services, setServices] = useState({
-    seo: false,
-    ads: false,
-    web: false,
-  });
-
-
-
-  const handleCheckboxChange = (service) => {
-    setServices({
-      ...services,
-      [service]: !services[service],
-    });
-  };
-
   return (
-    <Checkbox services={services} onCheckboxChange={handleCheckboxChange} />
+    <CheckboxProvider>
+      <Checkbox />
+      <TodoList />
+    </CheckboxProvider>
   );
 }
 
