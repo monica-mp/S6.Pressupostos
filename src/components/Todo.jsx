@@ -1,4 +1,8 @@
-function Todo({ todos, arrayServices }) {
+import { useCheckbox } from "../CheckboxContext";
+
+
+function Todo({ todos }) {
+  const { arrayServices, applyDiscount } = useCheckbox();
   return todos.map((todo) => (
     <div
       key={todo.id}
@@ -25,7 +29,7 @@ function Todo({ todos, arrayServices }) {
         )}
       </div>
       <div>
-        <h2>Total: {todo.total} &euro;</h2>
+        <h2>Total: {applyDiscount ? todo.total * 0.8 : todo.total} &euro;</h2>
       </div>
     </div>
   ));

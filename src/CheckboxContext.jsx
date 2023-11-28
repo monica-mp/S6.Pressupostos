@@ -66,6 +66,12 @@ export const CheckboxProvider = ({ children }) => {
     return total;
   };
 
+  const [applyDiscount, setApplyDiscount] = useState(false);
+
+  const handleDiscountChange = () => {
+    setApplyDiscount(!applyDiscount);
+  };
+
   const contextValue = {
     services,
     arrayServices,
@@ -74,6 +80,8 @@ export const CheckboxProvider = ({ children }) => {
     onPagesChange,
     onLanguagesChange,
     calculateTotal,
+    handleDiscountChange,
+    applyDiscount
   };
 
   return (

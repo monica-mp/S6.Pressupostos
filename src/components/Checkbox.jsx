@@ -3,15 +3,8 @@ import { Link } from "react-router-dom";
 import { useCheckbox } from "../CheckboxContext";
 
 function Checkbox() {
-  const {
-    services,
-    arrayServices,
-    handleCheckboxChange,
-    webOptions,
-    onPagesChange,
-    onLanguagesChange,
-    calculateTotal,
-  } = useCheckbox();
+  const { services, arrayServices, handleCheckboxChange, calculateTotal, applyDiscount, handleDiscountChange } =
+    useCheckbox();
 
   return (
     <div>
@@ -20,6 +13,16 @@ function Checkbox() {
           Ves a Home
         </button>
       </Link>
+      <label className="flex cursor-pointer gap-2 justify-center my-14">
+        <span className="label-text">Pagament mensual</span>
+        <input
+          type="checkbox"
+          value="synthwave"
+          className="toggle toggle-info"
+          onChange={handleDiscountChange}
+        />
+        <span className="label-text">Pagament anual</span>
+      </label>
       <div className="container w-3/6 mx-auto ">
         {arrayServices.map((service, index) => (
           <div
@@ -32,12 +35,23 @@ function Checkbox() {
                 <p>{service.description}</p>
               </div>
 
-              <div className="form-control w-96">
+              <div className="form-control w-96 self-center">
                 <div className="flex justify-between">
-                  <div>
-                    <p className="label text-xl font-semibold">
-                      {service.price}&euro;
-                    </p>
+                  <div className="flex flex-col">
+                    {applyDiscount && (
+                      <p className="label text-sm text-orange-400">
+                        Estalvia un 20%
+                      </p>
+                    )}
+                    <div className="flex justify-start">
+                      <div>
+                        <p className="label text-xl font-semibold">
+                          {applyDiscount
+                            ? `${(service.price * 0.8)}€`
+                            : `${service.price}€`}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <label className="label cursor-pointer">
                     <input
@@ -51,16 +65,14 @@ function Checkbox() {
                 </div>
 
                 <div className="self-end">
-                  {services.web && service.name === "Web" && (
-                    <WebOptions />
-                  )}
+                  {services.web && service.name === "Web" && <WebOptions />}
                 </div>
               </div>
             </div>
           </div>
         ))}
 
-        <p className="text-end">Preu pressuposat: {calculateTotal()}&euro;</p>
+        <p className="text-end">Preu pressuposat: {applyDiscount ? (calculateTotal() * 0.8) : calculateTotal()}&euro;</p>
       </div>
     </div>
   );

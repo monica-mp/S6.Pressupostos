@@ -4,7 +4,7 @@ import Todo from "./Todo";
 import { useCheckbox } from "../CheckboxContext";
 
 function TodoList() {
-  const { arrayServices, services, webOptions } = useCheckbox();
+  const { arrayServices, services, webOptions, applyDiscount } = useCheckbox();
 
   const [todos, setTodos] = useState([]);
 
@@ -85,7 +85,7 @@ function TodoList() {
         </div>
       </div>
 
-      <Todo todos={filterTodos()} arrayServices={arrayServices} />
+      <Todo todos={filterTodos()} />
     </div>
   );
 }
