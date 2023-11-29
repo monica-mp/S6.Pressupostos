@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; //Importar Link per crear rutes. De Welcome a App
 
+//Pàgina de benvinguda. Explica què ofereix la web i com funciona
 function Welcome() {
   return (
     <div className="flex flex-col items-center gap-4 min-h-screen place-content-center">
@@ -53,7 +54,7 @@ function Welcome() {
           </ul>
         </div>
       </div>
-
+      
       <Link to="/app">
         <button className="btn btn-outline btn-info">Ves a l'App</button>
       </Link>

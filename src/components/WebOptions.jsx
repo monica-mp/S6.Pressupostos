@@ -1,7 +1,7 @@
-import { useCheckbox } from "../CheckboxContext";
+import { useElements } from "../ElementsContext";
 
 function WebOptions() {
-  const { webOptions, onPagesChange, onLanguagesChange } = useCheckbox();
+  const { webOptions, onPagesChange, onLanguagesChange } = useElements();
   return (
     <div className="flex flex-col mt-8 border-2 rounded-lg border-cyan-600 p-2 self-end w-96 gap-4 ">
       <div className="flex">

@@ -1,8 +1,8 @@
-import { useCheckbox } from "../CheckboxContext";
+import { useElements } from "../ElementsContext";
 
 
 function Todo({ todos }) {
-  const { arrayServices, applyDiscount } = useCheckbox();
+  const { arrayServices, applyDiscount } = useElements();
   return todos.map((todo) => (
     <div
       key={todo.id}

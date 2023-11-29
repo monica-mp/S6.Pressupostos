@@ -1,23 +1,20 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react"; //Importar Context i useState
 
-const CheckboxContext = createContext();
+const ElementsContext = createContext();
 
-export const useCheckbox = () => {
-  return useContext(CheckboxContext);
+export const useElements = () => {
+  return useContext(ElementsContext);
 };
 
-export const CheckboxProvider = ({ children }) => {
+export const ElementsProvider = ({ children }) => {
+  //Estats dels serveis. Checked o !Checked
   const [services, setServices] = useState({
     seo: false,
     ads: false,
     web: false,
   });
 
-  const [webOptions, setWebOptions] = useState({
-    pages: 1,
-    languages: 1,
-  });
-
+  //Array amb cada servei
   const arrayServices = [
     {
       name: "Seo",
@@ -36,6 +33,7 @@ export const CheckboxProvider = ({ children }) => {
     },
   ];
 
+  //
   const handleCheckboxChange = (service) => {
     setServices({
       ...services,
@@ -43,6 +41,13 @@ export const CheckboxProvider = ({ children }) => {
     });
   };
 
+  //Opcions de Checkbox "Web". 
+  const [webOptions, setWebOptions] = useState({
+    pages: 1,
+    languages: 1,
+  });
+
+  //
   const onPagesChange = (pages) => {
     setWebOptions({ ...webOptions, pages });
   };
@@ -85,10 +90,10 @@ export const CheckboxProvider = ({ children }) => {
   };
 
   return (
-    <CheckboxContext.Provider value={contextValue}>
+    <ElementsContext.Provider value={contextValue}>
       {children}
-    </CheckboxContext.Provider>
+    </ElementsContext.Provider>
   );
 };
 
-export default CheckboxProvider;
+export default ElementsProvider;

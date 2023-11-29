@@ -1,10 +1,10 @@
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import { useCheckbox } from "../CheckboxContext";
+import { useElements } from "../ElementsContext";
 
 function TodoList() {
-  const { arrayServices, services, webOptions, applyDiscount } = useCheckbox();
+  const { arrayServices, services, webOptions, applyDiscount } = useElements();
 
   const [todos, setTodos] = useState([]);
 

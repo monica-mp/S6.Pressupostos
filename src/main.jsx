@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom' //Importar React Router
 import App from './App.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Welcome from './Welcome.jsx'
 
+
+//Establir rutes
 const router = createBrowserRouter([
   {
     path: '/',

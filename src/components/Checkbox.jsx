@@ -1,18 +1,13 @@
 import WebOptions from "./WebOptions";
-import { Link } from "react-router-dom";
-import { useCheckbox } from "../CheckboxContext";
+
+import { useElements} from "../ElementsContext";
 
 function Checkbox() {
   const { services, arrayServices, handleCheckboxChange, calculateTotal, applyDiscount, handleDiscountChange } =
-    useCheckbox();
+    useElements();
 
   return (
-    <div>
-      <Link to="/">
-        <button className="btn btn-outline btn-info btn-sm m-2">
-          Ves a Home
-        </button>
-      </Link>
+    <div>      
       <label className="flex cursor-pointer gap-2 justify-center my-14">
         <span className="label-text">Pagament mensual</span>
         <input
