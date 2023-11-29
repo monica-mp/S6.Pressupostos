@@ -1,6 +1,6 @@
 import { useElements } from "../ElementsContext";
 
-
+//Estructura del Todo: Inputs, serveis seleccionats i cost final.
 function Todo({ todos }) {
   const { arrayServices, applyDiscount } = useElements();
   return todos.map((todo) => (

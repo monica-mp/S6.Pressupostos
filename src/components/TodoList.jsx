@@ -3,14 +3,18 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import { useElements } from "../ElementsContext";
 
+//Llistat de Todos
 function TodoList() {
-  const { arrayServices, services, webOptions, applyDiscount } = useElements();
+  const { arrayServices, services, webOptions } = useElements();
 
+  //Array de Todos que s'aniran afegint
   const [todos, setTodos] = useState([]);
 
+  //N2. Ordenar i buscar per nom
   const [orderBy, setOrderBy] = useState(null);
   const [searchName, setSearchName] = useState("");
 
+  //Calcular el cost total dels serveis i els de web perquè al Todo sigui estàtic
   const calculateTotalForServices = () => {
     return arrayServices.reduce((total, service) => {
       if (services && services[service.name.toLowerCase()]) {
@@ -24,6 +28,7 @@ function TodoList() {
     return services.web ? (webOptions.pages + webOptions.languages) * 30 : 0;
   };
 
+  //Afegir el Todo quan fem el submit del formulari amb: Serveis seleccionats, cost total, inputs i webOptions. 
   const addTodo = (todo) => {
     const selectedServices = arrayServices
       .filter((service) => services && services[service.name.toLowerCase()])
@@ -48,6 +53,7 @@ function TodoList() {
     setTodos(newTodos);
   };
 
+  //N2. Ordenar segons nom, data o import
   const handleOrderBy = (type) => {
     setOrderBy(type);
 
@@ -60,6 +66,7 @@ function TodoList() {
     }
   };
 
+  //Buscar Todo segons el nom que escrivim a l'input
   const filterTodos = () => {
     return todos.filter((todo) =>
       todo.name.toLowerCase().includes(searchName.toLowerCase())

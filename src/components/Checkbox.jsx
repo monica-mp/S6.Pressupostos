@@ -2,6 +2,7 @@ import WebOptions from "./WebOptions";
 
 import { useElements} from "../ElementsContext";
 
+//Cards dels Checkboxes + webOptions + si tenim descompte anual aplicat, canviar la interficie
 function Checkbox() {
   const { services, arrayServices, handleCheckboxChange, calculateTotal, applyDiscount, handleDiscountChange } =
     useElements();

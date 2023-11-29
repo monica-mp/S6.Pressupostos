@@ -33,7 +33,7 @@ export const ElementsProvider = ({ children }) => {
     },
   ];
 
-  //
+  //Canviar estat del checkbox
   const handleCheckboxChange = (service) => {
     setServices({
       ...services,
@@ -41,13 +41,13 @@ export const ElementsProvider = ({ children }) => {
     });
   };
 
-  //Opcions de Checkbox "Web". 
+  //Opcions de Checkbox "Web".
   const [webOptions, setWebOptions] = useState({
     pages: 1,
     languages: 1,
   });
 
-  //
+  //Agafar un paràmetre "pages/languages". Actualitzar l'estat de webOptions amb setWebOptions. Spread per copiar les propietats existents i sobreescriure la propietat "pages/languages" amb el nou valor
   const onPagesChange = (pages) => {
     setWebOptions({ ...webOptions, pages });
   };
@@ -56,6 +56,7 @@ export const ElementsProvider = ({ children }) => {
     setWebOptions({ ...webOptions, languages });
   };
 
+  //Calcular el cost total. Verifica si el servei està checked i suma el seu cost al total
   const calculateTotal = () => {
     let total = 0;
 
@@ -71,12 +72,14 @@ export const ElementsProvider = ({ children }) => {
     return total;
   };
 
+  //N2. Aplicar descompte anual. De checked a !checked
   const [applyDiscount, setApplyDiscount] = useState(false);
 
   const handleDiscountChange = () => {
     setApplyDiscount(!applyDiscount);
   };
 
+  //Props context
   const contextValue = {
     services,
     arrayServices,
@@ -86,7 +89,7 @@ export const ElementsProvider = ({ children }) => {
     onLanguagesChange,
     calculateTotal,
     handleDiscountChange,
-    applyDiscount
+    applyDiscount,
   };
 
   return (

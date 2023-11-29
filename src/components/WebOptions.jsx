@@ -1,5 +1,6 @@
 import { useElements } from "../ElementsContext";
 
+//Opcions de Web
 function WebOptions() {
   const { webOptions, onPagesChange, onLanguagesChange } = useElements();
   return (

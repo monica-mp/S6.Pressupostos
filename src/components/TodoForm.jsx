@@ -1,13 +1,22 @@
 import { useState } from "react";
 
+//Formulari inputs nom, telèfon, email
 function TodoForm({ onSubmit }) {
+
+  //Definir tres variables d'estat (inputName, inputPhone, inputEmail) i les seves funcions per actualitzar els seus estats
   const [inputName, setInputName] = useState("");
   const [inputPhone, setInputPhone] = useState("");
   const [inputEmail, setInputEmail] = useState("");
 
+  //Agafa un event (e) i una funció d'actualització d'estat. Quan cridem la funció, actualitzem l'estat corresponent amb el valor del camp d'entrada  
   const handleInputChange = (e, setInputFunction) => {
     setInputFunction(e.target.value);
   };
+
+  /*Funció que s'executa quan enviem el formulari:
+   - Prevenim comportament predeterminat del formulari.
+   - Cridem a la funció onSubmit, passant un objecte amb ID generat aleatoriament i els valors dels camps d'entrada
+   - Fem reset als camps d'entrada.*/
 
   const handleSubmit = (e) => {
     e.preventDefault();
